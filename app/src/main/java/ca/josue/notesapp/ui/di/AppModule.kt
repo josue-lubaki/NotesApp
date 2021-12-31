@@ -5,10 +5,7 @@ import androidx.room.Room
 import ca.josue.notesapp.ui.feature_note.data.data_source.NoteDatabase
 import ca.josue.notesapp.ui.feature_note.data.repository.NoteRepositoryImpl
 import ca.josue.notesapp.ui.feature_note.domain.repository.NoteRepository
-import ca.josue.notesapp.ui.feature_note.domain.use_cas.AddNote
-import ca.josue.notesapp.ui.feature_note.domain.use_cas.DeleteNote
-import ca.josue.notesapp.ui.feature_note.domain.use_cas.GetNotes
-import ca.josue.notesapp.ui.feature_note.domain.use_cas.NoteUseCase
+import ca.josue.notesapp.ui.feature_note.domain.use_cas.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +38,8 @@ object AppModule {
         return NoteUseCase(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
-            addNote = AddNote(repository)
+            addNote = AddNote(repository),
+            getNote = GetNote(repository)
         )
     }
 
